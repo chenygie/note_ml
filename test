@@ -1,1 +1,18 @@
-test
+GitHub: invalid username or password
+Password for 'https://git@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://git@github.com/eurydyce/MDANSE.git/'
+
+Indeed, when I do a ssh -T git@github.com I get
+Hi eurydyce! You've successfully authenticated, but GitHub does not provide shell access.
+
+Which seems to indicate that everything is OK from that side (eurydyce being my github username). I strictly followed the instructions given on github and the recommendations of many stack discussion but no way. Would you have any idea of what I may have done wrong?
+
+answer:
+https://git@github.com/eurydyce/MDANSE.git is not an ssh url, it is an https one (which would require your GitHub account name, instead of 'git').
+Try to use ssh://git@github.com:eurydyce/MDANSE.git or just git@github.com:eurydyce/MDANSE.git
+
+git remote set-url origin git@github.com:eurydyce/MDANSE.git
+
+
+
